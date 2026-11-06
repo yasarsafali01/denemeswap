@@ -52,3 +52,6 @@ checkpoints/
 
 # Original roadmap draft (cleaned copy lives in docs/ROADMAP.md)
 project.md
+
+# Local tools (ComfyUI, model weights)
+tools/

@@ -1,9 +1,11 @@
 from .base import Backend, GenerationError
+from .comfyui import ComfyUIBackend
 from .passthrough import PassthroughBackend
 from .wan_animate import WanAnimateBackend
 
 BACKENDS: dict[str, type[Backend]] = {
     PassthroughBackend.name: PassthroughBackend,
+    ComfyUIBackend.name: ComfyUIBackend,
     WanAnimateBackend.name: WanAnimateBackend,
 }
 

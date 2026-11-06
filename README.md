@@ -16,7 +16,8 @@ Videodaki seçilen kişiyi, referans görseli verilen başka bir karaktere dön�
      1. Doğrulama        video + referans görsel kontrolü
      2. Analiz           ffprobe: çözünürlük, fps, kare sayısı, ses
      3. Sahne bölme      PySceneDetect → sahneler → ≤10 sn segmentler (kare bazlı)
-     4. Üretim           backend: passthrough (test) | wan-animate (Wan 2.2 Animate)
+     4. Üretim           backend: passthrough (test) | comfyui-local (8 GB GPU, block swap)
+                                  | wan-animate (bulut GPU, resmi Wan 2.2 script'leri)
      5. Normalize        üretilen klipleri kaynak çözünürlük/fps'e geri getir
      6. Birleştirme      segmentleri birleştir, orijinal sesi ekle
      7. Kalite kontrol   çözünürlük, fps, süre, ses karşılaştırması
@@ -38,10 +39,14 @@ ai-engine/
     validate.py       girdi doğrulama
     jobs.py           iş klasörü ve manifest
     envcheck.py       donanım/ortam kontrolü
-    generation/       üretim backend'leri (passthrough, wan_animate)
+    generation/       üretim backend'leri (passthrough, comfyui, wan_animate)
+  workflows/          ComfyUI API workflow'u (Wan 2.2 Animate, 8 GB ayarlı)
+  tools/              workflow dönüştürme script'leri
   tests/
 infrastructure/
-  cloud-gpu/setup_wan.sh   bulut GPU'ya Wan 2.2 Animate kurulumu
+  local-gpu/download_models.ps1  yerel model indirme (~31 GB)
+  cloud-gpu/setup_wan.sh         bulut GPU'ya Wan 2.2 Animate kurulumu
+tools/ComfyUI/                   yerel ComfyUI kurulumu (git'e girmez)
 docs/ROADMAP.md            teknik yol haritası
 ```
 
@@ -56,7 +61,7 @@ cd ai-engine
 .\.venv\Scripts\python.exe -m studio run --video ornek.mp4 --reference karakter.png --confirm-rights
 ```
 
-Varsayılan backend `passthrough`. GPU olmadan hattın tamamını test eder. Gerçek karakter dönüşümü için `--backend wan-animate` kullanın (bulut GPU gerekir).
+Varsayılan backend `passthrough`. GPU olmadan hattın tamamını test eder. Gerçek karakter dönüşümü için yerelde `--backend comfyui-local` (8 GB GPU + 64 GB RAM yeterli, yavaş), bulutta `--backend wan-animate` kullanın.
 
 Kurulum, ortam değişkenleri ve bulut GPU adımları: **[INSTALL.md](INSTALL.md)**
 
