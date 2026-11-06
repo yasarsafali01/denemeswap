@@ -54,4 +54,4 @@ checkpoints/
 project.md
 
 # Local tools (ComfyUI, model weights)
-tools/
+/tools/
