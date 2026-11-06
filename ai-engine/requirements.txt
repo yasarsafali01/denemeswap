@@ -1,0 +1,7 @@
+# Base pipeline (runs on CPU; no GPU needed)
+scenedetect==0.6.7.1
+opencv-python==4.12.0.88
+Pillow==11.3.0
+pytest==8.4.2
+
+# GPU stack (torch etc.) is installed separately, see INSTALL.md

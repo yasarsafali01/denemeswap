@@ -1,0 +1,54 @@
+# Build outputs
+dist/
+build/
+out/
+.next/
+.expo/
+*.class
+*.o
+*.a
+*.so
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Dependencies
+node_modules/
+vendor/
+.venv/
+venv/
+
+# Env & secrets
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+
+# IDE & OS
+.idea/
+.vscode/
+*.suo
+*.user
+.DS_Store
+Thumbs.db
+
+# Claude
+.claude/
+CLAUDE.md
+
+# Project data: videos, job outputs, model weights
+workspace/
+samples/
+models/
+checkpoints/
+*.safetensors
+*.ckpt
+*.pth
+*.mp4
+*.mov
+*.mkv
+*.webm
+
+# Original roadmap draft (cleaned copy lives in docs/ROADMAP.md)
+project.md
